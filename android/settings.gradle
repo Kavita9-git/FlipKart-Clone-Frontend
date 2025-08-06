@@ -7,7 +7,7 @@ pluginManagement {
   ).getParentFile().absolutePath
   includeBuild(reactNativeGradlePlugin)
 
-  // ✅ Fixed: Use static path instead of dynamic exec for Expo plugin
+  // ✅ FIXED STATIC PATH FOR EXPO PLUGIN
   includeBuild('../node_modules/expo-modules-autolinking/android/expo-gradle-plugin')
 }
 
@@ -23,13 +23,11 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
     ex.autolinkLibrariesFromCommand(expoAutolinking.rnConfigCommand)
   }
 }
-
 expoAutolinking.useExpoModules()
 expoAutolinking.useExpoVersionCatalog()
 
 includeBuild(expoAutolinking.reactNativeGradlePlugin)
 
-// Viro AR module support
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
 project(':arcore_client').projectDir = new File('../node_modules/@reactvision/react-viro/android/arcore_client')
 project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
