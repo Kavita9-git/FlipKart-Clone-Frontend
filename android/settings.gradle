@@ -31,11 +31,11 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 }
 expoAutolinking.useExpoModules()
 
-rootProject.name = 'MyApp'
+// rootProject.name = 'MyApp'
 
 expoAutolinking.useExpoVersionCatalog()
 
-include ':app'
+// include ':app'
 includeBuild(expoAutolinking.reactNativeGradlePlugin)
 
 
@@ -44,3 +44,6 @@ project(':arcore_client').projectDir = new File('../node_modules/@reactvision/re
 project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
 project(':viro_renderer').projectDir = new File('../node_modules/@reactvision/react-viro/android/viro_renderer')
 project(':react_viro').projectDir = new File('../node_modules/@reactvision/react-viro/android/react_viro')
+
+
+
