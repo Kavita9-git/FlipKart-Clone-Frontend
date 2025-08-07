@@ -1,6 +1,6 @@
 {
   "cli": {
-    "version": ">= 16.17.4",
+    "version": ">= 6.3.0",
     "appVersionSource": "remote"
   },
   "build": {
@@ -12,6 +12,13 @@
       "distribution": "internal"
     },
     "production": {
+      "android": {
+        "gradleCommand": ":app:bundleRelease",
+        "image": "latest",
+        "env": {
+          "EXPO_USE_GRADLE_WRAPPER": "true"
+        }
+      },
       "autoIncrement": true
     }
   },
