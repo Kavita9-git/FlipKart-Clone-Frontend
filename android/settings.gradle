@@ -6,6 +6,7 @@ pluginManagement {
         maven { url 'https://www.jitpack.io' }
     }
 
+    // React Native Gradle plugin path
     def reactNativeGradlePlugin = new File(
         providers.exec {
             workingDir(rootDir)
@@ -18,13 +19,12 @@ pluginManagement {
     ).getParentFile().absolutePath
     includeBuild(reactNativeGradlePlugin)
 
-    // ✅ Static path for Expo Autolinking plugin
+    // Expo autolinking plugin path
     includeBuild('../node_modules/expo-modules-autolinking/android/expo-gradle-plugin')
 }
 
 plugins {
-    // ✅ Make sure version matches your React Native version
-    id("com.facebook.react.settings") version "0.75.4"
+    id("com.facebook.react.settings") // ✅ no version here (local plugin)
     id("expo-autolinking-settings")
 }
 
