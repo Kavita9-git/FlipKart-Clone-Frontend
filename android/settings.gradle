@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven { url 'https://www.jitpack.io' }
     }
 
     def reactNativeGradlePlugin = new File(
@@ -13,7 +14,7 @@ pluginManagement {
     ).getParentFile().absolutePath
     includeBuild(reactNativeGradlePlugin)
 
-    // ✅ Fixed static path for Expo plugin
+    // ✅ FIXED STATIC PATH FOR EXPO PLUGIN
     includeBuild('../node_modules/expo-modules-autolinking/android/expo-gradle-plugin')
 }
 
@@ -35,9 +36,9 @@ expoAutolinking.useExpoVersionCatalog()
 
 includeBuild(expoAutolinking.reactNativeGradlePlugin)
 
-// ✅ React Viro Native Modules
+// React Viro AR/VR modules
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
-project(':arcore_client').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/arcore_client')
-project(':gvr_common').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/gvr_common')
-project(':viro_renderer').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/viro_renderer')
-project(':react_viro').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/react_viro')
+project(':arcore_client').projectDir = new File('../node_modules/@reactvision/react-viro/android/arcore_client')
+project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
+project(':viro_renderer').projectDir = new File('../node_modules/@reactvision/react-viro/android/viro_renderer')
+project(':react_viro').projectDir = new File('../node_modules/@reactvision/react-viro/android/react_viro')
