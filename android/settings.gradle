@@ -9,17 +9,22 @@ pluginManagement {
     def reactNativeGradlePlugin = new File(
         providers.exec {
             workingDir(rootDir)
-            commandLine("node", "--print", "require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })")
+            commandLine(
+                "node",
+                "--print",
+                "require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })"
+            )
         }.standardOutput.asText.get().trim()
     ).getParentFile().absolutePath
     includeBuild(reactNativeGradlePlugin)
 
-    // ✅ FIXED STATIC PATH FOR EXPO PLUGIN
+    // ✅ Static path for Expo Autolinking plugin
     includeBuild('../node_modules/expo-modules-autolinking/android/expo-gradle-plugin')
 }
 
 plugins {
-    id("com.facebook.react.settings")
+    // ✅ Make sure version matches your React Native version
+    id("com.facebook.react.settings") version "0.75.4"
     id("expo-autolinking-settings")
 }
 
@@ -36,7 +41,7 @@ expoAutolinking.useExpoVersionCatalog()
 
 includeBuild(expoAutolinking.reactNativeGradlePlugin)
 
-// React Viro AR/VR modules
+// ✅ React Viro AR/VR modules
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
 project(':arcore_client').projectDir = new File('../node_modules/@reactvision/react-viro/android/arcore_client')
 project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
