@@ -17,7 +17,8 @@
         "image": "latest",
         "env": {
           "EXPO_USE_GRADLE_WRAPPER": "true"
-        }
+        },
+        "java": "17"
       },
       "autoIncrement": true
     }
