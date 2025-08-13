@@ -1,37 +1,11 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-        maven { url 'https://www.jitpack.io' }
-    }
+// ✅ Project name
+rootProject.name = 'MyApp'
 
-    def reactNativePackageJson = providers.exec {
-        workingDir(rootDir)
-        commandLine("node", "--print", "require.resolve('react-native/package.json')")
-    }.standardOutput.asText.get().trim()
+// ✅ Load React Native Gradle settings
+apply from: file("../node_modules/react-native-gradle-plugin/settings.gradle")
 
-    def reactNativeGradlePluginDir = new File(reactNativePackageJson).getParentFile().absolutePath + "/../@react-native/gradle-plugin"
-    includeBuild(reactNativeGradlePluginDir)
-
-    includeBuild("../node_modules/expo-modules-autolinking/android/expo-gradle-plugin")
-}
-
-plugins {
-    id("com.facebook.react.settings") // local plugin, no version
-    id("expo-autolinking-settings")
-}
-
-extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
-    if (System.getenv("EXPO_USE_COMMUNITY_AUTOLINKING") == "1") {
-        ex.autolinkLibrariesFromCommand()
-    } else {
-        ex.autolinkLibrariesFromCommand(expoAutolinking.rnConfigCommand)
-    }
-}
-
-expoAutolinking.useExpoModules()
-expoAutolinking.useExpoVersionCatalog()
+// ✅ Load Expo autolinking (keeps Expo modules working)
+apply from: file("../node_modules/expo-modules-autolinking/android/settings.gradle")
 
 // ✅ Viro modules
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
@@ -39,3 +13,6 @@ project(':arcore_client').projectDir = new File('../node_modules/@reactvision/re
 project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
 project(':viro_renderer').projectDir = new File('../node_modules/@reactvision/react-viro/android/viro_renderer')
 project(':react_viro').projectDir = new File('../node_modules/@reactvision/react-viro/android/react_viro')
+
+// ✅ Main app module
+include ':app'
