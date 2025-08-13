@@ -6,7 +6,7 @@ pluginManagement {
         maven { url 'https://www.jitpack.io' }
     }
 
-    // React Native Gradle plugin path
+    // ✅ Resolve React Native Gradle plugin location
     def reactNativeGradlePlugin = new File(
         providers.exec {
             workingDir(rootDir)
@@ -17,19 +17,20 @@ pluginManagement {
             )
         }.standardOutput.asText.get().trim()
     ).getParentFile().absolutePath
+
     includeBuild(reactNativeGradlePlugin)
 
-    // Expo autolinking plugin path
-    includeBuild('../node_modules/expo-modules-autolinking/android/expo-gradle-plugin')
+    // ✅ Include Expo autolinking gradle plugin
+    includeBuild("../node_modules/expo-modules-autolinking/android/expo-gradle-plugin")
 }
 
 plugins {
-    id("com.facebook.react.settings") // ✅ no version here (local plugin)
+    id("com.facebook.react.settings") // local plugin from RN
     id("expo-autolinking-settings")
 }
 
 extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
-    if (System.getenv('EXPO_USE_COMMUNITY_AUTOLINKING') == '1') {
+    if (System.getenv("EXPO_USE_COMMUNITY_AUTOLINKING") == "1") {
         ex.autolinkLibrariesFromCommand()
     } else {
         ex.autolinkLibrariesFromCommand(expoAutolinking.rnConfigCommand)
@@ -39,9 +40,10 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 expoAutolinking.useExpoModules()
 expoAutolinking.useExpoVersionCatalog()
 
+// ✅ Ensure RN gradle plugin is included
 includeBuild(expoAutolinking.reactNativeGradlePlugin)
 
-// ✅ React Viro AR/VR modules
+// ✅ Viro AR/VR module includes
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
 project(':arcore_client').projectDir = new File('../node_modules/@reactvision/react-viro/android/arcore_client')
 project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
