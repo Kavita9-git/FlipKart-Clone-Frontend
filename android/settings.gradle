@@ -1,4 +1,4 @@
-// ✅ Plugin management for Gradle 8
+// ✅ Gradle plugin management
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -20,9 +20,13 @@ dependencyResolutionManagement {
 // ✅ Project name
 rootProject.name = "MyApp"
 
-// ✅ Expo modules autolinking (Gradle 8 compatible)
-apply(from: new File(["node", "--print", "require.resolve('expo/package.json')"]
-    .execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle"))
+// ✅ Expo autolinking (Gradle 8 safe)
+def expoAutolinkingScript = new File(["node", "--print", "require.resolve('expo/package.json')"]
+    .execute(null, rootDir)
+    .text
+    .trim(), "../scripts/autolinking.gradle")
+
+apply(from: expoAutolinkingScript)
 useExpoModules()
 
 // ✅ Viro modules
@@ -32,5 +36,5 @@ project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react
 project(':viro_renderer').projectDir = new File('../node_modules/@reactvision/react-viro/android/viro_renderer')
 project(':react_viro').projectDir = new File('../node_modules/@reactvision/react-viro/android/react_viro')
 
-// ✅ Main app module
+// ✅ Main app
 include ':app'
