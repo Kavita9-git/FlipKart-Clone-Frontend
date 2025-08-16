@@ -1,18 +1,29 @@
-// Expo autolinking plugin (must be FIRST)
+// ✅ Plugin management for Gradle 8
 pluginManagement {
-  repositories {
-    mavenCentral()
-    gradlePluginPortal()
-    google()
-  }
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+    }
 }
 
-plugins {
-  apply from: file("../node_modules/expo-modules-autolinking/android/settings.gradle")
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+    }
 }
 
 // ✅ Project name
 rootProject.name = "MyApp"
+
+// ✅ Expo modules autolinking (Gradle 8 compatible)
+apply(from: new File(["node", "--print", "require.resolve('expo/package.json')"]
+    .execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle"))
+useExpoModules()
 
 // ✅ Viro modules
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
