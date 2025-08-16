@@ -21,12 +21,13 @@ dependencyResolutionManagement {
 rootProject.name = "MyApp"
 
 // ✅ Expo autolinking (Gradle 8 safe)
-def expoAutolinkingScript = new File(["node", "--print", "require.resolve('expo/package.json')"]
-    .execute(null, rootDir)
-    .text
-    .trim(), "../scripts/autolinking.gradle")
-
-apply(from: expoAutolinkingScript)
+apply from: new File(
+    ["node", "--print", "require.resolve('expo/package.json')"]
+        .execute(null, rootDir)
+        .text
+        .trim(),
+    "../scripts/autolinking.gradle"
+)
 useExpoModules()
 
 // ✅ Viro modules
