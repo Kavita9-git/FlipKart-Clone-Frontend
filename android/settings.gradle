@@ -1,11 +1,18 @@
+// Expo autolinking plugin (must be FIRST)
+pluginManagement {
+  repositories {
+    mavenCentral()
+    gradlePluginPortal()
+    google()
+  }
+}
+
+plugins {
+  id("expo.modules.gradle.project") version "1.11.3" apply false
+}
+
 // ✅ Project name
-rootProject.name = 'MyApp'
-
-// ✅ Load React Native Gradle settings
-apply from: file("../node_modules/react-native-gradle-plugin/settings.gradle")
-
-// ✅ Load Expo autolinking (keeps Expo modules working)
-apply from: file("../node_modules/expo-modules-autolinking/android/settings.gradle")
+rootProject.name = "MyApp"
 
 // ✅ Viro modules
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
