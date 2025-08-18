@@ -6,6 +6,9 @@ pluginManagement {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
     }
+    plugins {
+        id("com.facebook.react") version "0.73.6" // 👈 match RN version
+    }
 }
 
 // ✅ Project name
