@@ -32,7 +32,6 @@
     "react-native-auto-scroll": "^0.0.1",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "^2.26.0",
-    "react-native-gradle-plugin": "^0.71.19",
     "react-native-marquee": "^0.5.0",
     "react-native-mmkv": "^3.3.0",
     "react-native-razorpay": "^2.3.0",
