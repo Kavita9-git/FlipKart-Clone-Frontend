@@ -1,4 +1,3 @@
-// ✅ Gradle plugin management (Gradle 7.x safe)
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -6,15 +5,14 @@ pluginManagement {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
     }
-    plugins {
-        id("com.facebook.react") version "0.73.6" // 👈 match RN version
-    }
 }
 
-// ✅ Project name
 rootProject.name = "MyApp"
 
-// ✅ Expo autolinking (Gradle 7 safe)
+// ✅ React Native Gradle Plugin resolve from node_modules
+includeBuild("../node_modules/react-native-gradle-plugin")
+
+// ✅ Expo autolinking
 apply from: file("../node_modules/expo/scripts/autolinking.gradle")
 useExpoModules()
 

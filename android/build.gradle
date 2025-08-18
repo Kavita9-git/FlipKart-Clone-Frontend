@@ -1,33 +1,25 @@
 buildscript {
     ext {
-        buildToolsVersion = "33.0.0"
-        minSdkVersion = 23
-        compileSdkVersion = 33
-        targetSdkVersion = 33
-        kotlinVersion = "1.8.22"
+        buildToolsVersion = "34.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        kotlinVersion = "1.9.22"
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        // ✅ Use AGP 7.4.2 (compatible with Gradle 7.5)
-        classpath("com.android.tools.build:gradle:7.4.2")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22")
+        classpath("com.android.tools.build:gradle:8.3.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 
 allprojects {
     repositories {
-        maven {
-            url("$rootDir/../node_modules/react-native/android")
-        }
-        google()
         mavenCentral()
+        google()
         maven { url 'https://www.jitpack.io' }
     }
 }
-
-apply plugin: "expo-root-project"
-apply plugin: "com.facebook.react.rootproject"
