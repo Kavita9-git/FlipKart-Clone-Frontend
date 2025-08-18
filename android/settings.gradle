@@ -10,7 +10,7 @@ pluginManagement {
 rootProject.name = "MyApp"
 
 // ✅ React Native Gradle Plugin resolve from node_modules
-includeBuild("../node_modules/react-native-gradle-plugin")
+// includeBuild("../node_modules/react-native-gradle-plugin")
 
 // ✅ Expo autolinking
 apply from: file("../node_modules/expo/scripts/autolinking.gradle")
