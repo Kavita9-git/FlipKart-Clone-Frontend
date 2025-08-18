@@ -1,4 +1,4 @@
-// ✅ Gradle plugin management
+// ✅ Gradle plugin management (Gradle 7.x safe)
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -8,34 +8,19 @@ pluginManagement {
     }
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://www.jitpack.io' }
-    }
-}
-
 // ✅ Project name
 rootProject.name = "MyApp"
 
-// ✅ Expo autolinking (Gradle 8 safe)
-apply from: new File(
-    ["node", "--print", "require.resolve('expo/package.json')"]
-        .execute(null, rootDir)
-        .text
-        .trim(),
-    "../scripts/autolinking.gradle"
-)
+// ✅ Expo autolinking (Gradle 7 safe)
+apply from: file("../node_modules/expo/scripts/autolinking.gradle")
 useExpoModules()
 
 // ✅ Viro modules
 include ':react_viro', ':arcore_client', ':gvr_common', ':viro_renderer'
-project(':arcore_client').projectDir = new File('../node_modules/@reactvision/react-viro/android/arcore_client')
-project(':gvr_common').projectDir = new File('../node_modules/@reactvision/react-viro/android/gvr_common')
-project(':viro_renderer').projectDir = new File('../node_modules/@reactvision/react-viro/android/viro_renderer')
-project(':react_viro').projectDir = new File('../node_modules/@reactvision/react-viro/android/react_viro')
+project(':arcore_client').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/arcore_client')
+project(':gvr_common').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/gvr_common')
+project(':viro_renderer').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/viro_renderer')
+project(':react_viro').projectDir = new File(rootDir, '../node_modules/@reactvision/react-viro/android/react_viro')
 
 // ✅ Main app
 include ':app'
