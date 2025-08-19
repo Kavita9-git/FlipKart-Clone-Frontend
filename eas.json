@@ -9,15 +9,14 @@
       "distribution": "internal"
     },
     "preview": {
+      "android": {
+        "buildType": "apk"
+      },
       "distribution": "internal"
     },
     "production": {
       "android": {
-        "gradleCommand": ":app:bundleRelease",
-        "image": "latest",
-        "env": {
-          "EXPO_USE_GRADLE_WRAPPER": "true"
-        }
+        "buildType": "app-bundle"
       },
       "autoIncrement": true
     }

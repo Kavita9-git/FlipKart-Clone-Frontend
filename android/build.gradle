@@ -13,15 +13,23 @@ buildscript {
     }
 
     dependencies {
+        // ✅ Use Gradle 8.1.1 (works with AGP 8.x and RN 0.73+)
         classpath("com.android.tools.build:gradle:8.1.1")
-        classpath("com.facebook.react:react-native-gradle-plugin:0.73.8") // 👈 match your RN version
+
+        // ✅ React Native Gradle Plugin - must match your RN version
+        // Check your package.json → "react-native": "0.73.x"
+        classpath("com.facebook.react:react-native-gradle-plugin:0.73.8")
+
+        // ✅ Kotlin Gradle Plugin
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 
 allprojects {
     repositories {
-        mavenCentral()
         google()
+        mavenCentral()
+        maven { url "https://www.jitpack.io" }
+        maven { url "https://maven.google.com" }
     }
 }
