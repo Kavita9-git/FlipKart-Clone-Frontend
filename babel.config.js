@@ -1,9 +1,8 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['module:@react-native/babel-preset'],
+    presets: ['module:metro-react-native-babel-preset'], // ✅ or use 'babel-preset-expo' if using Expo
     plugins: [
-      'react-native-reanimated/plugin',
       [
         'module-resolver',
         {
@@ -19,6 +18,7 @@ module.exports = function (api) {
           },
         },
       ],
+      'react-native-reanimated/plugin', // ✅ Always last
     ],
   };
 };
