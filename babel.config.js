@@ -1,8 +1,9 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['module:metro-react-native-babel-preset'], // ✅ or 'babel-preset-expo' if you're using Expo SDK
+    presets: ['babel-preset-expo'], // ✅ Use expo preset for Expo projects
     plugins: [
+      // ✅ Module resolver for path aliases
       [
         'module-resolver',
         {
@@ -18,7 +19,12 @@ module.exports = function (api) {
           },
         },
       ],
-      'react-native-reanimated/plugin', // ✅ MUST be last
+
+      // ✅ Fix private methods (#methodName) issue
+      '@babel/plugin-transform-private-methods',
+
+      // ✅ Must be LAST
+      'react-native-reanimated/plugin',
     ],
   };
 };
