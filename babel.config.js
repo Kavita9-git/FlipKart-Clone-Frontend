@@ -1,7 +1,7 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['module:metro-react-native-babel-preset'], // ✅ or 'babel-preset-expo' if you're using Expo SDK
+    presets: ['babel-preset-expo'],
     plugins: [
       [
         'module-resolver',
@@ -17,6 +17,18 @@ module.exports = function (api) {
             '@styles': './src/styles',
           },
         },
+      ],
+      [
+        '@babel/plugin-proposal-class-properties',
+        { loose: true }, // ✅ Keep loose mode consistent
+      ],
+      [
+        '@babel/plugin-proposal-private-methods',
+        { loose: true }, // ✅ Same loose mode
+      ],
+      [
+        '@babel/plugin-proposal-private-property-in-object',
+        { loose: true }, // ✅ Same loose mode
       ],
       'react-native-reanimated/plugin', // ✅ MUST be last
     ],

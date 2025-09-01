@@ -9,7 +9,7 @@ const BannerSection = () => {
   useEffect(() => {
     const fetchBanners = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/banners');
+        const res = await fetch('http://192.168.29.201:8080/api/banners');
 
         const data = await res.json();
         setBanners(data);

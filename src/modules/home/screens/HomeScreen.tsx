@@ -6,7 +6,7 @@ const HomeScreen = () => {
   const [banners, setBanners] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/admin/resources/Banner') // use your actual IP on real device
+    fetch('http://192.168.29.201:3000/admin/resources/Banner') // use your actual IP on real device
       .then((res) => res.json())
       .then((json) => {
         const parsedBanners = json.records.map((record) => ({
