@@ -9,7 +9,8 @@
       }
     },
     "android": {
-      "package": "com.kavita_expo9.MyApp"
+      "package": "com.kavita_expo9.MyApp",
+      "usesCleartextTraffic": true
     }
   }
 }
