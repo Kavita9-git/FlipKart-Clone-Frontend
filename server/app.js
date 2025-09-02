@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import path from "path";
+import morgan from "morgan";
 
 import userRoutes from "./routes/user.js";
 import categoryRoutes from "./routes/category.js";
@@ -21,7 +22,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-
+app.use(morgan("dev"));
 // Allow React Native device or browser to access backend
 app.use(cors({
   origin: "http://localhost:8081", // Adjust if your frontend runs elsewhere
