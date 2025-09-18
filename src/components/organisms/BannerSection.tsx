@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
-import AdCarousal from './AdCarousal'; // adjust import if needed
+import AdCarousal from '../../modules/home/organisms/AdCarousal'; // adjust import if needed
 
 const BannerSection = () => {
   const [banners, setBanners] = useState<any[]>([]);
@@ -9,7 +9,7 @@ const BannerSection = () => {
   useEffect(() => {
     const fetchBanners = async () => {
       try {
-        const res = await fetch('http://192.168.29.201:8080/api/banners');
+        const res = await fetch('https://flipkart-clone-backend-8b5e.onrender.com/api/banners');
 
         const data = await res.json();
         setBanners(data);

@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const BASE_URL = 'http://192.168.29.201:8080/api'; // Change to your backend URL
+const BASE_URL = 'https://flipkart-clone-backend-8b5e.onrender.com/api'; // Change to your backend URL
 
 const userApi = axios.create({
   baseURL: BASE_URL,

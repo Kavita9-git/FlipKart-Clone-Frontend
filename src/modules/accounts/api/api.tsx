@@ -20,7 +20,7 @@ export const loginOrSignUp = async (phone: string, address: string) => {
 
 export const getOrderByUserId = async (userId: string) => {
   try {
-    const res = await axios.get(`http://192.168.29.201:8080/order/user/${userId}`);
+    const res = await axios.get(`https://flipkart-clone-backend-8b5e.onrender.com/order/user/${userId}`);
     console.log("ðŸ“¦ Raw API response:", res.data);
     return res.data.orders; // âœ… already array
   } catch (error: any) {
@@ -38,7 +38,7 @@ export const getOrderByUserId = async (userId: string) => {
 
 
   export const API = axios.create({
-  baseURL: "http://192.168.29.201:8080/api/orders" // âœ… Correct
+  baseURL: "https://flipkart-clone-backend-8b5e.onrender.com/api/orders" // âœ… Correct
  // Replace with your backend
 });
 

@@ -6,7 +6,7 @@ import { View, Text, FlatList, StyleSheet, ActivityIndicator, Image } from 'reac
 import axios from 'axios';
 
 // ✅ Replace this with your local IP when testing on physical device
-const BASE_URL = "http://192.168.29.201:8080"; // Make sure your backend runs on this IP
+const BASE_URL = "https://flipkart-clone-backend-8b5e.onrender.com"; // Make sure your backend runs on this IP
 
 const OrderListScreen = () => {
   const userId = useSelector((state: any) => state.auth.user?._id);

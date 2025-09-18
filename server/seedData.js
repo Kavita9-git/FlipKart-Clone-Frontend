@@ -172,11 +172,22 @@ export const categoriesData = [
       category: "Fashion",
     },
 
-{
+    {
       name: "Mat Lipstick",
       price: 750,
       description:
         "Red Mat Lipstick",
+      image_uri:
+        "https://rukminim2.flixcart.com/image/416/416/xif0q/lipstick/y/3/s/-original-imahew9xad4n4fmp.jpeg?q=70&crop=false",
+      ar_uri: null,
+      category: "beauty",
+    },
+
+    {
+      name: "Foundation",
+      price: 750,
+      description:
+        "Liquid Foundation",
       image_uri:
         "https://rukminim2.flixcart.com/image/416/416/xif0q/lipstick/y/3/s/-original-imahew9xad4n4fmp.jpeg?q=70&crop=false",
       ar_uri: null,

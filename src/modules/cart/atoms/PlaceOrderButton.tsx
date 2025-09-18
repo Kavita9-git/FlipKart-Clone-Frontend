@@ -30,7 +30,7 @@ const PlaceOrderButton = () => {
 
     try {
       // Step 1: Create order from backend
-      const orderResponse = await fetch('http://192.168.29.201:8080/order/transaction', {
+      const orderResponse = await fetch('https://flipkart-clone-backend-8b5e.onrender.com/order/transaction', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -70,7 +70,7 @@ const PlaceOrderButton = () => {
           handler: async (response: any) => {
             // Step 3: Verify payment and save order
             try {
-              const verifyResponse = await fetch('http://192.168.29.201:8080/order', {
+              const verifyResponse = await fetch('https://flipkart-clone-backend-8b5e.onrender.com/order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

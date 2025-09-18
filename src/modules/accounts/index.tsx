@@ -18,7 +18,7 @@ import { formatDate } from '@utils/Constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 
-const BASE_URL = 'http://192.168.29.201:8080';
+const BASE_URL = 'https://flipkart-clone-backend-8b5e.onrender.com';
 
 const Account = () => {
   const route = useRoute();
