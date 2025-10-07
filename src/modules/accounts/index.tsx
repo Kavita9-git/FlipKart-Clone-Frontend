@@ -356,12 +356,12 @@ const styles = StyleSheet.create({
     marginRight: 12,
     alignItems: 'center',
   },
-  storeImage: {
-    width: 100,
-    height: 120,
-    borderRadius: 10,
-    backgroundColor: '#eee',
-  },
+  // storeImage: {
+  //   width: 100,
+  //   height: 120,
+  //   borderRadius: 10,
+  //   backgroundColor: '#eee',
+  // },
   storeTitle: {
     fontSize: 12,
     marginTop: 6,

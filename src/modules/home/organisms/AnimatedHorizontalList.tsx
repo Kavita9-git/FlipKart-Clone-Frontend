@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         fontSize: RFValue(14),
         marginHorizontal: 15,
         marginBottom: 15,
+        marginTop:483,
     },
     image: {
         width: "100%",

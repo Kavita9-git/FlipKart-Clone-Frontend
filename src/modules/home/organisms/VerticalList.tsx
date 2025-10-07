@@ -54,19 +54,22 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         marginTop: 10,
+        marginBottom: 110,
     },
 
     absoluteView: {
         width: screenWidth,
-        height: 180,
+        height: 1900,
         position: "absolute",
-        top: 0,
-        zIndex: -1
+        top: 20,
+        zIndex: -1,
+        marginLeft: -10,
     },
     headingText: {
         fontSize: RFValue(16),
         fontFamily: FONTS.heading,
-        color: "#222"
+        color: "#222",
+        marginTop: 10,
     },
     button: {
         padding: 10,
@@ -76,12 +79,12 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignSelf: "flex-start",
         gap: 10,
-        marginVertical: 15
+        marginVertical: 15,
     },
     buttonText: {
         fontWeight: '400',
         color: "#fff",
-        fontSize: RFValue(12)
+        fontSize: RFValue(12),
     },
     itemContainer: {
         width: '48%',

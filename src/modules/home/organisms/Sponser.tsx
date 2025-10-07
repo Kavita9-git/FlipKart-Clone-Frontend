@@ -6,7 +6,7 @@ import { navigate } from '@navigation/NavigationUtil';
 const Sponser: FC<{ data: any }> = ({ data }) => {
   return (
     <Pressable style={styles.container} onPress={() => navigate('Categories')}>
-      <Image style={styles.img} source={{ uri: data?.data[0].image_uri }} />
+      {/* <Image style={styles.img} source={{ uri: data?.data[0].image_uri }} /> */}
     </Pressable>
   );
 };
@@ -16,7 +16,7 @@ export default Sponser;
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 15,
-    height: 80,
+    height: 0,
     width: screenWidth - 30,
     justifyContent: 'center',
     alignItems: 'center',

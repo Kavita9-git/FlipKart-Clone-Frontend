@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   productName: {
     fontSize: RFValue(10),
-    marginTop: 10,
+    marginTop: 50,
   },
   productDesc: {
     fontSize: RFValue(9),
