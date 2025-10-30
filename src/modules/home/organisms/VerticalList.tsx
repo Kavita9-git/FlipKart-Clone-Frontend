@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
     absoluteView: {
         width: screenWidth,
-        height: 2300,
+        height: 2000,
         position: "absolute",
         top: 20,
         zIndex: -1,
