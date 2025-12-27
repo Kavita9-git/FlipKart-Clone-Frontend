@@ -79,9 +79,13 @@ Razorpay
 
 
 ⚙️ Run Locally (Expo Web)
+
 git clone https://github.com/Kavita9-git/FlipKart-Clone-Frontend.git
+
 cd FlipKart-Clone-Frontend
+
 npm install
+
 npx expo start --web
 
 
