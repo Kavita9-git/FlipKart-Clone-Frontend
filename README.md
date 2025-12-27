@@ -2,7 +2,7 @@
 
 A Flipkart-inspired E-commerce application built using React Native with Expo Web, featuring product browsing, cart, wishlist, and online payment flow.
 
-
+///////////////////////////////////
 
 
 🚀 Features
@@ -25,7 +25,7 @@ A Flipkart-inspired E-commerce application built using React Native with Expo We
 
 🎨 Flipkart-style UI
 
-
+//////////////////////////////////
 
 
 🛠 Tech Stack
@@ -51,6 +51,8 @@ MongoDB
 
 Razorpay
 
+///////////////////////////////////////////////
+
 
 
 ## 🖥 App Screenshots
@@ -71,6 +73,9 @@ Razorpay
 ![Cart Screen](src/screenshotImg/CartScreen.png)
 
 
+
+
+//////////////////////////////////////////////////////////////////////////
 
 
 ⚙️ Run Locally (Expo Web)
